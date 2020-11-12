@@ -1,0 +1,34 @@
+.first_tab{
+    .goods_item{
+        display: flex;
+        border-bottom: 1rpx solid #ccc;
+        .goods_img_wrap{
+            display: flex;
+            flex: 2;
+            justify-content: center;
+            align-items: center;
+            image{
+                width: 70%;
+            }
+        }
+        .goods_info_wrap{
+            flex: 3;
+            display: flex;
+            //伸缩盒子主轴方向为列，没有的话价格就在名称右侧
+            flex-direction: column;
+            //空白环绕 项目位于各行之前、之间、之后都留有空白的容器内。
+            justify-content: space-around;
+            .goods_name{
+                //-webkit-box:Flexbox 为 display 属性赋予了一个新的值（即 box 值），适用于移动端
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            .goods_price{
+                color: var(--themeColor);
+                font-size: 32rpx;
+            }
+        }
+    }
+}

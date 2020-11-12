@@ -1,0 +1,44 @@
+<view class="revice_address_row">
+    <view class="user_info_row">
+        <view class="user_info">
+            <view class="user_name">{{address.userName}}</view>
+            <view class="user_address">{{address.all}}</view>
+        </view>
+        <view class="user_phone">{{address.telNumber}}</view>
+    </view>
+</view>
+<!-- //选中后 ctr+shift+p 选择 Generate CSS tree 将下面的标签变成less中的样式 -->
+<view class="cart_content">
+    <view class="cart_title">购物车</view>
+    <view class="cart_main">
+        <block wx:if="{{cart.length!=0}}">
+            <view class="cart_item" wx:for="{{cart}}" wx:key="goods_id">
+                <!-- 商品图片 -->
+                <navigator>
+                    <image mode="widthFix" src="{{item.goods_small_logo}}" /> 
+                </navigator>
+                <!-- 商品信息 -->
+                <view class="cart_info_wrap">
+                    <view class="goods_name">{{item.goods_name}}</view>
+                    <view class="goods_price_wrap">
+                        <view class="goods_price">￥{{item.goods_price}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <image mode="widthFix" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=414958469,2308531002&fm=15&gp=0.jpg" />  
+        </block>
+    </view>   
+</view>
+<view class="footer_tool">
+    <!-- 总价格 -->
+    <view class="tool_price_wrap">
+        <view class="tool_price">
+            合计：<text class="tool_price_text">￥{{totalPrice}}</text>
+        </view>
+        <view>包含邮费</view>
+    </view>
+    <!-- 结算 -->
+    <view class="order_play_wrap" bindtap="handleOrderPay">支付({{totalNum}})</view>
+</view>
